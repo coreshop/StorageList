@@ -12,19 +12,14 @@
 
 declare(strict_types=1);
 
-namespace CoreShop\Component\StorageList\Model;
+namespace CoreShop\Component\StorageList\DTO;
 
-interface StorageListInterface
+use CoreShop\Component\StorageList\Model\StorageListInterface;
+use CoreShop\Component\StorageList\Model\StorageListItemInterface;
+
+interface AddToStorageListInterface
 {
-    public function getId();
+    public function getStorageList(): StorageListInterface;
 
-    public function getItems(): ?array;
-
-    public function hasItems(): bool;
-
-    public function addItem($item): void;
-
-    public function removeItem($item): void;
-
-    public function hasItem($item): bool;
+    public function getStorageListItem(): StorageListItemInterface;
 }

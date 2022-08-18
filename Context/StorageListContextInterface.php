@@ -12,19 +12,14 @@
 
 declare(strict_types=1);
 
-namespace CoreShop\Component\StorageList\Model;
+namespace CoreShop\Component\StorageList\Context;
 
-interface StorageListInterface
+use CoreShop\Component\StorageList\Model\StorageListInterface;
+
+interface StorageListContextInterface
 {
-    public function getId();
-
-    public function getItems(): ?array;
-
-    public function hasItems(): bool;
-
-    public function addItem($item): void;
-
-    public function removeItem($item): void;
-
-    public function hasItem($item): bool;
+    /**
+     * @throws StorageListNotFoundException
+     */
+    public function getStorageList(): StorageListInterface;
 }

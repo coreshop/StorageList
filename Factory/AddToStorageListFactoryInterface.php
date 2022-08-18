@@ -12,11 +12,16 @@
 
 declare(strict_types=1);
 
-namespace CoreShop\Component\StorageList;
+namespace CoreShop\Component\StorageList\Factory;
 
+use CoreShop\Component\StorageList\DTO\AddToStorageListInterface;
 use CoreShop\Component\StorageList\Model\StorageListInterface;
+use CoreShop\Component\StorageList\Model\StorageListItemInterface;
 
-interface StorageListManagerInterface
+interface AddToStorageListFactoryInterface
 {
-    public function persist(StorageListInterface $storageList): void;
+    public function createWithStorageListAndStorageListItem(
+        StorageListInterface $storageList,
+        StorageListItemInterface $storageListItem
+    ): AddToStorageListInterface;
 }

@@ -12,19 +12,15 @@
 
 declare(strict_types=1);
 
-namespace CoreShop\Component\StorageList\Model;
+namespace CoreShop\Component\StorageList\Processor;
 
-interface StorageListInterface
+use CoreShop\Component\Order\Model\OrderItemInterface;
+
+interface StorageListItemProcessorInterface
 {
-    public function getId();
-
-    public function getItems(): ?array;
-
-    public function hasItems(): bool;
-
-    public function addItem($item): void;
-
-    public function removeItem($item): void;
-
-    public function hasItem($item): bool;
+    public function processItem(
+        OrderItemInterface $cartItem,
+        array $params,
+        array $context,
+    ): void;
 }

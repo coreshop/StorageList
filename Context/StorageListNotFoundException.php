@@ -12,19 +12,16 @@
 
 declare(strict_types=1);
 
-namespace CoreShop\Component\StorageList\Model;
+namespace CoreShop\Component\StorageList\Context;
 
-interface StorageListInterface
+class StorageListNotFoundException extends \RuntimeException
 {
-    public function getId();
-
-    public function getItems(): ?array;
-
-    public function hasItems(): bool;
-
-    public function addItem($item): void;
-
-    public function removeItem($item): void;
-
-    public function hasItem($item): bool;
+    public function __construct($message = null, \Exception $previousException = null)
+    {
+        parent::__construct(
+            $message ?: 'CoreShop was not able to find out the requested Storage List.',
+            0,
+            $previousException
+        );
+    }
 }

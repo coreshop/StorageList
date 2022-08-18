@@ -12,19 +12,14 @@
 
 declare(strict_types=1);
 
-namespace CoreShop\Component\StorageList\Model;
+namespace CoreShop\Component\StorageList;
 
-interface StorageListInterface
+use CoreShop\Component\StorageList\Model\StorageListItemInterface;
+
+class StorageListItemResolver implements StorageListItemResolverInterface
 {
-    public function getId();
-
-    public function getItems(): ?array;
-
-    public function hasItems(): bool;
-
-    public function addItem($item): void;
-
-    public function removeItem($item): void;
-
-    public function hasItem($item): bool;
+    public function equals(StorageListItemInterface $itemA, StorageListItemInterface $itemB): bool
+    {
+        return $itemA->equals($itemB);
+    }
 }
