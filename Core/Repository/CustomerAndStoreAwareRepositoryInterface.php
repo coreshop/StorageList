@@ -12,11 +12,14 @@
 
 declare(strict_types=1);
 
-namespace CoreShop\Component\StorageList;
+namespace CoreShop\Component\StorageList\Core\Repository;
 
+use CoreShop\Component\Customer\Model\CustomerInterface;
+use CoreShop\Component\Resource\Repository\PimcoreRepositoryInterface;
 use CoreShop\Component\StorageList\Model\StorageListInterface;
+use CoreShop\Component\Store\Model\StoreInterface;
 
-interface StorageListManagerInterface
+interface CustomerAndStoreAwareRepositoryInterface extends PimcoreRepositoryInterface
 {
-    public function persist(StorageListInterface $storageList): void;
+    public function findLatestByStoreAndCustomer(StoreInterface $store, CustomerInterface $customer): ?StorageListInterface;
 }

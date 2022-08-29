@@ -12,21 +12,13 @@
 
 declare(strict_types=1);
 
-namespace CoreShop\Component\StorageList\Model;
+namespace CoreShop\Component\StorageList\Factory;
 
-interface StorageListInterface
+use CoreShop\Component\Resource\Factory\FactoryInterface;
+use CoreShop\Component\Resource\Model\ResourceInterface;
+use CoreShop\Component\StorageList\Model\StorageListItemInterface;
+
+interface StorageListItemFactoryInterface extends FactoryInterface
 {
-    public function getId();
-
-    public function getItems(): ?array;
-
-    public function setItems(?array $items);
-
-    public function hasItems(): bool;
-
-    public function addItem($item): void;
-
-    public function removeItem($item): void;
-
-    public function hasItem($item): bool;
+    public function createWithStorageListProduct(ResourceInterface $product): StorageListItemInterface;
 }
