@@ -25,7 +25,7 @@ interface StorageListResolverInterface
     /**
      * @return StorageListInterface[]
      */
-    public function getStorageLists(): array;
+    public function getStorageLists(array $context): array;
 
-    public function findNamed(string $name): ?StorageListInterface;
+    public function findNamed(array $context, string $name): ?StorageListInterface;
 }
