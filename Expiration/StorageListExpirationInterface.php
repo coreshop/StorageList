@@ -16,21 +16,9 @@ declare(strict_types=1);
  *
  */
 
-namespace CoreShop\Component\StorageList\Model;
+namespace CoreShop\Component\StorageList\Expiration;
 
-interface StorageListInterface extends \Countable
+interface StorageListExpirationInterface
 {
-    public function getId(): ?int;
-
-    public function getItems(): ?array;
-
-    public function setItems(?array $items);
-
-    public function hasItems(): bool;
-
-    public function addItem($item): void;
-
-    public function removeItem($item): void;
-
-    public function hasItem($item): bool;
+    public function expire(int $days, array $params = []): void;
 }

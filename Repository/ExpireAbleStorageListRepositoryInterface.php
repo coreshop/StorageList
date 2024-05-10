@@ -16,21 +16,11 @@ declare(strict_types=1);
  *
  */
 
-namespace CoreShop\Component\StorageList\Model;
+namespace CoreShop\Component\StorageList\Repository;
 
-interface StorageListInterface extends \Countable
+use CoreShop\Component\Resource\Repository\RepositoryInterface;
+
+interface ExpireAbleStorageListRepositoryInterface extends RepositoryInterface
 {
-    public function getId(): ?int;
-
-    public function getItems(): ?array;
-
-    public function setItems(?array $items);
-
-    public function hasItems(): bool;
-
-    public function addItem($item): void;
-
-    public function removeItem($item): void;
-
-    public function hasItem($item): bool;
+    public function findExpiredStorageLists(int $days, array $params = []): array;
 }
